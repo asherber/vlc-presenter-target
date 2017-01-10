@@ -29,8 +29,9 @@ namespace VlcPresenterMode
         {
             "--fullscreen",
             "--no-embedded-video",
-            "--vout=directx",
-            @"--directx-device=\\.\DISPLAY2",
+            "--no-qt-fs-controller",
+            $"--video-x={Screen.PrimaryScreen.WorkingArea.Width + 200}",
+            "--video-y=200",       
             "--sub-track=0"
         };
         private static readonly string _vlcArgs = String.Join(" ", _argList);
