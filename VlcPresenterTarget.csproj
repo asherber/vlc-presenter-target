@@ -7,8 +7,8 @@
     <ProjectGuid>{BF4247CC-F896-40D4-8048-08BCA5F8C62B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>VlcPresenterMode</RootNamespace>
-    <AssemblyName>VlcPresenterMode</AssemblyName>
+    <RootNamespace>VlcPresenterTarget</RootNamespace>
+    <AssemblyName>VlcPresenterTarget</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>

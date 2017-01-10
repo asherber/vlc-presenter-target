@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace VlcPresenterMode
+namespace VlcPresenterTarget
 {
     public partial class MainForm : Form
     {

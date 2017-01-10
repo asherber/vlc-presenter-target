@@ -1,4 +1,4 @@
-﻿namespace VlcPresenterMode
+﻿namespace VlcPresenterTarget
 {
     partial class MainForm
     {
