@@ -19,11 +19,26 @@ namespace VlcPresenterTarget
         }
 
         private static readonly List<string> _vlcFiles = new List<string>()
+        // See https://wiki.videolan.org/VLC_Features_Formats
         {
-            ".mp4",
+            ".3g2",
+            ".3gp",
+            ".asf",
             ".avi",
+            ".f4v",
+            ".flv",
+            ".m1v",
+            ".m2v",
+            ".m4v",
+            ".mkv",
+            ".mls",
+            ".mov",
+            ".mp4",
+            ".mpeg",
+            ".mpg",
+            ".ogg",
+            ".ogv",
             ".wmv",
-            ".mpg"
         };
         private static readonly List<string> _argList = new List<string>()
         {
