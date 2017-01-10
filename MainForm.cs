@@ -75,6 +75,11 @@ namespace VlcPresenterMode
             LaunchVlc(GetVlcFiles(e).Single());
         }
 
-        
+        private void TestMenuItem_Click(object sender, EventArgs e)
+        {
+            var filename = Path.GetTempFileName();
+            File.WriteAllBytes(filename, Properties.Resources.SampleVideo);
+            LaunchVlc(filename);
+        }
     }
 }
