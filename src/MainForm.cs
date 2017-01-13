@@ -67,7 +67,8 @@ namespace VlcPresenterTarget
             "--no-qt-fs-controller",
             $"--video-x={Screen.PrimaryScreen.WorkingArea.Width + 200}",
             "--video-y=200",       
-            "--sub-track=0"
+            "--sub-track=0",
+            "--play-and-exit",
         };
 
         private static readonly string _vlcArgs = String.Join(" ", _argList);
