@@ -88,6 +88,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.MenuStrip;
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "VLC Presenter Target";
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.MainForm_DragDrop);
