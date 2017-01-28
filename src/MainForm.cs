@@ -35,6 +35,7 @@ namespace VlcPresenterTarget
         public MainForm()
         {
             InitializeComponent();
+            VlcLabel.Text = _defaultVlcCmd;
         }
 
         // See https://wiki.videolan.org/VLC_Features_Formats
@@ -72,14 +73,14 @@ namespace VlcPresenterTarget
         };
 
         private static readonly string _vlcArgs = String.Join(" ", _argList);
-        private static readonly string _vlcCmd = @"C:\Program Files (x86)\VideoLAN\VLC\vlc.exe";
+        private static readonly string _defaultVlcCmd = @"C:\Program Files (x86)\VideoLAN\VLC\vlc.exe";
 
 
         private void LaunchVlc(string videoFile)
         {
             var psi = new ProcessStartInfo()
             {
-                FileName = _vlcCmd,
+                FileName = VlcLabel.Text,
                 Arguments = $"{_vlcArgs} \"{videoFile}\"",
                 UseShellExecute = false
             };
@@ -116,6 +117,24 @@ namespace VlcPresenterTarget
             var tempFile = Path.GetTempFileName();
             File.WriteAllBytes(tempFile, Properties.Resources.SampleVideo);
             LaunchVlc(tempFile);
+        }
+
+        private void VlcLabel_Click(object sender, EventArgs e)
+        {
+            using (var dlg = new OpenFileDialog())
+            {
+                dlg.Title = "Select VLC executable";
+                dlg.InitialDirectory = Path.GetDirectoryName(VlcLabel.Text);
+                dlg.FileName = Path.GetFileName(VlcLabel.Text);
+                dlg.Filter = "VLC executable|vlc.exe";
+                if (dlg.ShowDialog() == DialogResult.OK)
+                    VlcLabel.Text = dlg.FileName;
+            }
+        }
+
+        private void VlcLabel_MouseMove(object sender, MouseEventArgs e)
+        {
+            Cursor.Current = Cursors.Hand;
         }
     }
 }
