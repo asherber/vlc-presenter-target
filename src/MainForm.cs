@@ -35,6 +35,7 @@ namespace VlcPresenterTarget
         public MainForm()
         {
             InitializeComponent();
+            SetDefaultVlcPath();
             VlcLabel.Text = _defaultVlcCmd;
         }
 
@@ -73,8 +74,23 @@ namespace VlcPresenterTarget
         };
 
         private static readonly string _vlcArgs = String.Join(" ", _argList);
-        private static readonly string _defaultVlcCmd = @"C:\Program Files (x86)\VideoLAN\VLC\vlc.exe";
 
+        private string _defaultVlcCmd;
+
+        private void SetDefaultVlcPath()
+        {
+            void TrySetDefaultPath(string path)
+            {
+                if (_defaultVlcCmd == null && File.Exists(path))
+                    _defaultVlcCmd = path;
+            }
+
+            TrySetDefaultPath(@"C:\Program Files\VideoLAN\VLC\vlc.exe");
+            TrySetDefaultPath(@"C:\Program Files (x86)\VideoLAN\VLC\vlc.exe");
+
+            var driveRoot = Path.GetPathRoot(Application.ExecutablePath);
+            TrySetDefaultPath(Path.Combine(driveRoot, @"\PortableApps\VLCPortable\App\vlc\vlc.exe"));
+        }
 
         private void LaunchVlc(string videoFile)
         {
